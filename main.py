@@ -1,0 +1,43 @@
+# Programa de carrera de tortugas
+import turtle
+
+class Circuito():
+    corredores = []
+    __posStartY = (-30,-10,10,30)
+    __colorTurtle = ('red', 'blue', 'orange', 'green')
+    
+#    Constructor - creación del circuito
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+        
+#       Atrivuto Privado
+        self.__screen = turtle.Screen()
+        self.__screen.setup(width, height)
+        self.__screen.bgcolor('lightgray')
+        self.__startLine = -width/2 + 20
+        self.__finishLine = width/2 - 20
+        
+        self.__createRunners()
+    
+#    Creación de los corredores
+    def __createRunners(self): 
+        for i in range(4):
+            new_rutle = turtle.Turtle()
+            new_rutle.color(self.__colorTurtle[i])
+            new_rutle.shape('turtle')
+            new_rutle.penup()
+            
+            new_rutle.setpos(self.__startLine, self.__posStartY[i])
+            
+            self.corredores.append(new_rutle)
+            
+    
+            
+
+if __name__ == '__main__':
+    circuito =  Circuito(640,480)
+        
+        
+        
+        
