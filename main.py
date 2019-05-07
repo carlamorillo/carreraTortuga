@@ -1,5 +1,6 @@
 # Programa de carrera de tortugas
 import turtle
+import random
 
 class Circuito():
     corredores = []
@@ -20,7 +21,7 @@ class Circuito():
         
         self.__createRunners()
     
-#    Creación de los corredores
+#    Creación de los corredores - metodo privado
     def __createRunners(self): 
         for i in range(4):
             new_rutle = turtle.Turtle()
@@ -33,11 +34,23 @@ class Circuito():
             self.corredores.append(new_rutle)
             
     
-            
+    def competir(self):
+        hayGanador = False
+        while not hayGanador:
+            for tortuga in self.corredores:
+                avance = random.randint(1,6)
+                tortuga.fd(avance)
+                
+                if tortuga.position()[0] >= self.__finishLine:
+                    hayGanador = True
+                    print('La tortuga de color {} ha ganado'.format(tortuga.color()[0]))
+                    break
+                    
+        
 
 if __name__ == '__main__':
     circuito =  Circuito(640,480)
-        
+    circuito.competir()
         
         
         
